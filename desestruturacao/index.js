@@ -1,10 +1,10 @@
-//trabalhando com atribuuicao via desestruturacao e rest operator em arrays
+//trabalhando com atribuicao via desestruturacao e rest operator em arrays
 const valores = [10, 12, 14, 16, 18, 20, 22, 24, 26]
 
 const [valor1, valor2, ...resto] = valores
 console.log(valor1, valor2, resto)
 
-//trabalhando com atribuuicao via desestruturacao e rest operator em objetos
+//trabalhando com atribuicao via desestruturacao e rest operator em objetos
 const pessoa = {
     nome: "Arthur",
     sobrenome: "Morgan",
