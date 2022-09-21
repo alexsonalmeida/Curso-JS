@@ -69,7 +69,7 @@ const f3 = (callback) => {
     f2(() => {
         f3(() => {console.log("Terminei")})
     })
-}) */
+})  */
 
 f1(f1Callback)
 
@@ -84,3 +84,9 @@ function f2Callback() {
 function f3Callback() {
     console.log("Terminei")
 }
+
+//IIFE Immediately Invoked Function Expression
+(function(idade, peso) {
+    console.log("Nada declarado aqui vazará ao escopo global")
+    console.log(`A idade da pessoa é ${idade} e ela pesa ${peso}kg`)
+})(19, 54)
