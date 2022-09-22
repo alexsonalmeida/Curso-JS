@@ -125,3 +125,36 @@ function Pessoa(nome, sobrenome) {
 
 const p2 = new Pessoa("Luiz", "Santos")
 p2.falaNome()
+
+//Generator functions - Ao utilizar return, nenhum yield posterior sera executado
+function* geradora1() {
+    yield "Valor 1"
+    yield "Valor 2"
+    yield "Valor 3"
+}
+
+const g1 = geradora1()
+
+console.log(g1.next().value)
+console.log(g1.next().value)
+console.log(g1.next().value)
+console.log(g1.next().done)
+
+function* geradora2() {
+    yield 0
+    yield 1
+    yield 2   
+}
+
+function* geradora3() {
+    yield* geradora2()
+    yield 3
+    yield 4
+    yield 5
+}
+
+const g2 = geradora3()
+
+for (let valor of g2) {
+    console.log(valor)
+}
