@@ -1,4 +1,4 @@
-/* //Declarando funcoes tradicionais (ocorre hoisting)
+//Declarando funcoes tradicionais (ocorre hoisting)
 function fala1() {
     console.log("Falando 1")
 }
@@ -36,7 +36,7 @@ const pessoa = {
     }
 }
 
-pessoa.cumprimentar() */
+pessoa.cumprimentar()
 
 //Funcoes callback
 const criaRand = () => {
@@ -65,11 +65,11 @@ const f3 = (callback) => {
     }, criaRand())
 }
 
-/* f1(() => {
+f1(() => {
     f2(() => {
         f3(() => {console.log("Terminei")})
     })
-})  */
+}) 
 
 f1(f1Callback)
 
@@ -78,7 +78,7 @@ function f1Callback() {
 }
 
 function f2Callback() {
-    f3(f3Callback)
+   f3(f3Callback)
 }
 
 function f3Callback() {
@@ -90,3 +90,23 @@ function f3Callback() {
     console.log("Nada declarado aqui vazará ao escopo global")
     console.log(`A idade da pessoa é ${idade} e ela pesa ${peso}kg`)
 })(19, 54)
+
+//Factory functions
+
+function criaPessoa(nome, sobrenome, altura, peso) {
+    return {
+        nome: nome,
+        sobrenome: sobrenome,
+        altura: altura,
+        peso: peso,
+        get nomeCompleto() {
+            return `${nome} ${sobrenome}`
+        },
+        get imc() {
+            return (peso / altura ** 2).toFixed(2)
+        }
+    }
+}
+
+const p1 = criaPessoa("Lucas", "Braga", 1.67, 56)
+console.log(p1)
