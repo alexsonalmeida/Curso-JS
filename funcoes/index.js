@@ -6,7 +6,6 @@ function fala1() {
 fala1()
 
 //Passando uma funcao como parametro - funcoes sao first class object
-
 function chamaFala1(funcao) {
     console.log("Aqui é a função que recebe parâmetro:")
     funcao()
@@ -92,7 +91,6 @@ function f3Callback() {
 })(19, 54)
 
 //Factory functions
-
 function criaPessoa(nome, sobrenome, altura, peso) {
     return {
         nome: nome,
