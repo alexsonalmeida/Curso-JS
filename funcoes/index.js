@@ -110,3 +110,18 @@ function criaPessoa(nome, sobrenome, altura, peso) {
 
 const p1 = criaPessoa("Lucas", "Braga", 1.67, 56)
 console.log(p1)
+
+//Constructor functions
+function Pessoa(nome, sobrenome) {
+    //Atributo privado -> const
+    const id = 12345
+    this.nome = nome
+    this.sobrenome = sobrenome
+
+    this.falaNome = () => {
+        console.log(`Olá, meu nome é ${nome} ${sobrenome}`)
+    }
+}
+
+const p2 = new Pessoa("Luiz", "Santos")
+p2.falaNome()
