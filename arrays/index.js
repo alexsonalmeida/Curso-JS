@@ -1,4 +1,4 @@
-const array = ['Fulano', 'de', 'Tal']
+/* const array = ['Fulano', 'de', 'Tal']
 console.log(array)
 
 //Pegando a quantidade de elementos de um vetor como o atributo lenght
@@ -81,3 +81,34 @@ console.log(maioresIdade)
 //Pegando apenas numeros pares do array
 const pares = valores.filter(valor => valor % 2 == 0)
 console.log(pares)
+
+//Pegando e alterando valores de um array com map()
+const valores1 = [12, 7, 6, 13, 27, 12, 29, 24, 68, 65, 19, 30]
+
+const sucessores = valores1.map((valor) => {
+    return valor + 1
+})
+console.log(sucessores) */
+
+//Usando map() em objetos
+const funcionarios = [
+    {nome: "Fulano", idade: 18, salario: 1200.50},
+    {nome: "Ciclano", idade: 25, salario: 3500.00},
+    {nome: "Beltrano", idade: 30, salario: 6000.00}
+]
+
+//Alterando o array original
+const salariosAtualizados = funcionarios.map((obj) => {
+    obj.salario += obj.salario * 8 / 100
+    return obj
+})
+console.log(salariosAtualizados)
+
+//Sem alterar o array original
+const salariosAtualizados2 = funcionarios.map((obj) => {
+    const novoObjeto = {...obj}
+    novoObjeto.salario += Number((novoObjeto.salario * 4 / 100).toFixed(2))
+    return novoObjeto
+})
+console.log(salariosAtualizados2)
+    
