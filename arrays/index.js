@@ -1,4 +1,4 @@
-/* const array = ['Fulano', 'de', 'Tal']
+const array = ['Fulano', 'de', 'Tal']
 console.log(array)
 
 //Pegando a quantidade de elementos de um vetor como o atributo lenght
@@ -88,7 +88,7 @@ const valores1 = [12, 7, 6, 13, 27, 12, 29, 24, 68, 65, 19, 30]
 const sucessores = valores1.map((valor) => {
     return valor + 1
 })
-console.log(sucessores) */
+console.log(sucessores)
 
 //Usando map() em objetos
 const funcionarios = [
@@ -111,4 +111,12 @@ const salariosAtualizados2 = funcionarios.map((obj) => {
     return novoObjeto
 })
 console.log(salariosAtualizados2)
-    
+
+//Reduzindo um array a um unico valor com reduce()
+const valores2 = [12, 7, 6, 13, 27, 12, 29, 24, 68, 65, 19, 30]
+
+const somaPares = valores2.reduce((acumulador, valor) => {
+    if (valor % 2 === 0) acumulador += valor
+    return acumulador
+}, 0)
+console.log(somaPares)
