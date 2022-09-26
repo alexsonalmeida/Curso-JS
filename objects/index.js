@@ -52,3 +52,11 @@ console.log(Object.getOwnPropertyDescriptor(p1, 'nome'))
 console.log(Object.keys(p1))
 console.log(Object.values(p1))
 console.log(Object.entries(p1))
+
+//Trabalhando com a propriedade prototype das constructor functions
+Pessoa.prototype.nomeCompleto = function() {
+  return `${this.nome } ${this.sobrenome}` 
+}
+
+const nomeCompleto = p1.nomeCompleto()
+console.log(nomeCompleto)
