@@ -60,3 +60,15 @@ Pessoa.prototype.nomeCompleto = function() {
 
 const nomeCompleto = p1.nomeCompleto()
 console.log(nomeCompleto)
+
+//Setando prototypes de objetos anteriores com setPrototypeOf()
+const obj1 = {
+  chave1: "valor1"
+}
+
+const obj2 = {
+  chave2: "valor2"
+}
+
+Object.setPrototypeOf(obj2, obj1)
+console.log(obj2.chave1)
