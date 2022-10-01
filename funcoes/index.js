@@ -43,30 +43,30 @@ const criaRand = () => {
     return Math.floor(interval)
 }
 
-const f1 = (callback) => {
+const f1 = callback => {
     setTimeout(() => {
         console.log("Funcao 1")
-        if (callback) {callback()}
+        if (callback) callback()
     }, criaRand())
 }
 
-const f2 = (callback) => {
+const f2 = callback => {
     setTimeout(() => {
         console.log("Funcao 2")
-        if (callback) {callback()}
+        if (callback) callback()
     }, criaRand())
 }
 
-const f3 = (callback) => {
+const f3 = callback => {
     setTimeout(() => {
         console.log("Funcao 3")
-        if (callback) {callback()}
+        if (callback) callback()
     }, criaRand())
 }
 
 f1(() => {
     f2(() => {
-        f3(() => {console.log("Terminei")})
+        f3(() => console.log("Terminei"))
     })
 }) 
 
