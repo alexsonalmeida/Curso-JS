@@ -1,4 +1,4 @@
-/* //Definindo propriedades em objetos com defineProperty
+//Definindo propriedades em objetos com defineProperty
 function Pessoa(nome, sobrenome, idade) {
     this.nome = nome
     this.sobrenome = sobrenome
@@ -85,7 +85,7 @@ Camiseta.prototype.constructor = Camiseta
 const c1 = new Camiseta("Camiseta branca", 40, "m", "algodao")
 
 console.log(c1)
-console.log(c1.preco) */
+console.log(c1.preco)
 
 //Polimorfismo - em JavaScript, nao e possivel fazer polimorfismo por sobrecarga, apenas por sobrescrita
 function Conta(agencia, conta, saldo) {
