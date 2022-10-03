@@ -1,4 +1,4 @@
-//Definindo propriedades em objetos com defineProperty
+/* //Definindo propriedades em objetos com defineProperty
 function Pessoa(nome, sobrenome, idade) {
     this.nome = nome
     this.sobrenome = sobrenome
@@ -72,3 +72,70 @@ const obj2 = {
 
 Object.setPrototypeOf(obj2, obj1)
 console.log(obj2.chave1)
+
+//Heranca
+function Camiseta(nome, preco, tamanho, tecido) {
+  Produto.call(this, nome, preco)
+  this.tamanho = tamanho
+  this.tecido = tecido
+}
+Camiseta.prototype = Object.create(Produto.prototype)
+Camiseta.prototype.constructor = Camiseta
+
+const c1 = new Camiseta("Camiseta branca", 40, "m", "algodao")
+
+console.log(c1)
+console.log(c1.preco) */
+
+//Polimorfismo - em JavaScript, nao e possivel fazer polimorfismo por sobrecarga, apenas por sobrescrita
+function Conta(agencia, conta, saldo) {
+  this.agencia = agencia
+  this.conta = conta
+  this.saldo = saldo
+}
+
+Conta.prototype.sacar = function(valor) {
+  if (this.saldo < valor) {
+    console.log(`Saldo insuficiente: R$${this.saldo}`)
+    return
+  }
+
+  this.saldo -= valor
+  this.mostrarDados()
+}
+
+Conta.prototype.depositar = function(valor) {
+  this.saldo += valor
+  this.mostrarDados()
+}
+
+Conta.prototype.mostrarDados = function() {
+  console.log(`agencia/conta: ${this.agencia} / ${this.conta} | saldo: R$${this.saldo}`)
+}
+
+const conta1 = new Conta(1111, 1 , 2400)
+conta1.sacar(350)
+conta1.depositar(200)
+
+function ContaCorrente(agencia, conta, saldo, limite) {
+  Conta.call(this, agencia, conta, saldo)
+  this.limite = limite
+}
+ContaCorrente.prototype = Object.create(Conta.prototype)
+ContaCorrente.prototype.constructor = ContaCorrente
+
+ContaCorrente.prototype.sacar = function(valor) {
+  if (this.saldo - valor < -this.limite) {
+    console.log(`Saldo insuficiente: R$${this.saldo}`)
+    return
+  }
+
+  this.saldo -= valor
+  this.mostrarDados()
+}
+
+const cc1 = new ContaCorrente(22222, 2, 1500, 200)
+cc1.depositar(400)
+cc1.sacar(1600)
+cc1.sacar(350)
+cc1.sacar(200)
