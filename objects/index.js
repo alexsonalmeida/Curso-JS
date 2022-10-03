@@ -139,3 +139,53 @@ cc1.depositar(400)
 cc1.sacar(1600)
 cc1.sacar(350)
 cc1.sacar(200)
+
+//Prototypes em factory functions
+const comer = {
+  comer() {
+    console.log(`${this.nome} esta comendo`)
+  },
+}
+
+const andar = {
+  andar() {
+    console.log(`${this.nome} esta andando`)
+  },
+}
+
+const cantar = {
+  cantar() {
+    console.log(`${this.nome} esta cantando`)
+  },
+}
+
+const pessoaPrototype = Object.assign({}, comer, andar, cantar)
+
+function criaPessoa(nome, sobrenome, idade) {
+  return Object.create(pessoaPrototype, {
+    nome: {
+      value: nome,
+      writable: false,
+      configurable: false,
+      enumerable: true
+    },
+
+    sobrenome: {
+      value: sobrenome,
+      writable: false,
+      configurable: false,
+      enumerable: true
+    },
+
+    idade: {
+      value: idade,
+      writable: false,
+      configurable: false,
+      enumerable: true
+    }
+  })
+}
+
+const pessoa = criaPessoa("Fulano", "de Tal", 16)
+console.log(pessoa)
+pessoa.cantar()
