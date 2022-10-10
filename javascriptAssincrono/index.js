@@ -85,3 +85,23 @@ baixarPagina()
 .catch(err => {
     console.log(err)
 })
+
+//Lidando com async e await
+async function assinc() {
+    try {
+        const fase1 = await esperador('Teste 1', criaRand())
+        console.log(fase1)
+
+        const fase2 = await esperador('Teste 2', criaRand())
+        console.log(fase2)
+
+        const fase3 = await esperador('Tetste 3', criaRand())
+        console.log(fase3) 
+        
+        const fase4 = await esperador(false, criaRand())
+        console.log(fase4)     
+    }
+    catch (err) {console.log(err)}
+}
+
+assinc()
