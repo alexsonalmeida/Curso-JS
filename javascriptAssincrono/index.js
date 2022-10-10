@@ -19,24 +19,24 @@ function esperador(msg, timer = 0) {
 }
 
 esperador("teste inicial", criaRand())
-.then(resultado => {
-    console.log(resultado)
-    return esperador("teste secundario", criaRand())
-})
-.then(resultado => {
-    console.log(resultado)
-    return esperador("último teste", criaRand())
-})
-.then(resultado => {
-    console.log(resultado)
-    return esperador(true)
-})
-.then(resultado => {
-    console.log(resultado)
-})
-.catch(err => {
-    console.log(err)
-})
+    .then(resultado => {
+        console.log(resultado)
+        return esperador("teste secundario", criaRand())
+    })
+    .then(resultado => {
+        console.log(resultado)
+        return esperador("último teste", criaRand())
+    })
+    .then(resultado => {
+        console.log(resultado)
+        return esperador(true)
+    })
+    .then(resultado => {
+        console.log(resultado)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
 //Retornando uma unica promise com Promise.all() - Se cair no catch, ele só retorna o erro
 const promises = [
@@ -47,12 +47,12 @@ const promises = [
 ]
 
 Promise.all(promises)
-.then(res => {
-    console.log(res)
-})
-.catch(err => {
-    console.log(err)
-})
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
 //Pegando a promise que resolver mais rápido com o Promise.race() - Só cai no catch se a primeira que for resulvida der reject
 const promises2 = [
@@ -63,12 +63,12 @@ const promises2 = [
 ]
 
 Promise.race(promises2)
-.then(res => {
-    console.log(res)
-})
-.catch(err => {
-    console.log(err)
-})
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
 //Tratando de retornar uma promesa resolve ou reject diretamente como Promise.resolve() e Promise.reject()
 function baixarPagina() {
@@ -79,12 +79,12 @@ function baixarPagina() {
 }
 
 baixarPagina()
-.then(msg => {
-    console.log(msg)
-})
-.catch(err => {
-    console.log(err)
-})
+    .then(msg => {
+        console.log(msg)
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
 //Lidando com async e await
 async function assinc() {
